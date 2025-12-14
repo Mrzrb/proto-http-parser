@@ -35,6 +35,3 @@ harness = false
 
 [lib]
 name = "proto_http_parser"
-
-[workspace]
-exclude = ["test_project"]
