@@ -25,7 +25,7 @@
 //! ## Simple Usage with Coordinator
 //!
 //! ```rust,no_run
-//! use proto_http_parser_v2::*;
+//! use proto_http_parser::*;
 //! use std::path::Path;
 //! 
 //! // Create coordinator with default configuration
@@ -43,7 +43,7 @@
 //! ## Batch Processing
 //!
 //! ```rust,no_run
-//! use proto_http_parser_v2::*;
+//! use proto_http_parser::*;
 //! 
 //! let coordinator = ProtoHttpCoordinator::new();
 //! 
@@ -61,7 +61,7 @@
 //!
 //! ```rust,no_run
 //! // In build.rs
-//! use proto_http_parser_v2::BuildIntegration;
+//! use proto_http_parser::BuildIntegration;
 //! 
 //! fn main() -> Result<(), Box<dyn std::error::Error>> {
 //!     BuildIntegration::new()
@@ -76,7 +76,7 @@
 //! ## Manual Component Usage
 //!
 //! ```rust,no_run
-//! use proto_http_parser_v2::*;
+//! use proto_http_parser::*;
 //! use std::path::Path;
 //! 
 //! // Create individual components

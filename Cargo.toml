@@ -30,7 +30,7 @@ name = "parsing_benchmarks"
 harness = false
 
 [lib]
-name = "proto_http_parser_v2"
+name = "proto_http_parser"
 
 [workspace]
-# This is a standalone project, not part of a workspace
+exclude = ["test_project"]

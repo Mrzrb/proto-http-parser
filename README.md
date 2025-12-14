@@ -55,7 +55,7 @@ message HelloResponse {
 
 ```rust
 // build.rs
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     BuildIntegration::new()

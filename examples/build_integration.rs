@@ -1,6 +1,6 @@
 //! Build.rs integration examples
 
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 use std::path::PathBuf;
 
 fn main() -> std::result::Result<(), Box<dyn std::error::Error>> {
