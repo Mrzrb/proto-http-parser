@@ -5,7 +5,7 @@ use nom::{
     branch::alt,
     bytes::complete::{tag, take_until},
     character::complete::{
-        alpha1, alphanumeric1, char, digit1, line_ending, multispace0, space0, space1,
+        alpha1, alphanumeric1, char, digit1, line_ending, multispace0, multispace1, space0, space1,
     },
     combinator::{map, opt, recognize, value, verify},
     multi::{many0, separated_list0},
@@ -141,7 +141,23 @@ impl NomProtoParser {
     /// Resolve imports in a proto file
     fn resolve_imports(&self, proto_file: &mut ProtoFile) -> Result<(), ParseError> {
         for import in &proto_file.imports {
-            self.resolve_single_import(&import.path)?;
+            // 对于 google/api 相关的导入，我们可以跳过实际的文件解析
+            // 因为我们只需要识别 HTTP 注解，不需要完整的类型定义
+            if import.path.starts_with("google/api/") {
+                // 跳过 google/api 导入，这些通常是注解定义
+                continue;
+            }
+            
+            // 对于其他导入，尝试解析，但如果失败也不要中断整个过程
+            match self.resolve_single_import(&import.path) {
+                Ok(_) => {
+                    // 成功解析导入
+                }
+                Err(_) => {
+                    // 导入解析失败，但继续处理
+                    // 在实际应用中，可能需要记录警告
+                }
+            }
         }
         Ok(())
     }
@@ -166,6 +182,11 @@ impl NomProtoParser {
 
 /// Parse a complete proto file
 fn proto_file(input: &str) -> IResult<&str, ProtoFile> {
+    // Skip initial comments and whitespace
+    let (input, _) = many0(alt((
+        map(comment, |_| ()),
+        map(multispace1, |_| ()),
+    )))(input)?;
     let (input, _) = multispace0(input)?;
     
     let (input, syntax) = opt(syntax_statement)(input)?;

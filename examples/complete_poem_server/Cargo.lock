@@ -203,7 +203,7 @@ dependencies = [
  "chrono",
  "poem",
  "poem-openapi",
- "proto-http-parser-v2",
+ "proto-http-parser",
  "serde",
  "serde_json",
  "tokio",
@@ -1168,7 +1168,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "proto-http-parser-v2"
+name = "proto-http-parser"
 version = "2.0.0"
 dependencies = [
  "chrono",
