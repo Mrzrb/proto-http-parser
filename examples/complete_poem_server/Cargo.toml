@@ -1,0 +1,24 @@
+[package]
+name = "complete-poem-server-example"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+proto-http-parser-v2 = { path = "../.." }
+poem = { version = "3.1", features = ["cookie", "csrf", "session"] }
+poem-openapi = { version = "5.1", features = ["swagger-ui"] }
+tokio = { version = "1.0", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1.0", features = ["v4", "serde"] }
+anyhow = "1.0"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+async-trait = "0.1"
+
+[build-dependencies]
+proto-http-parser-v2 = { path = "../.." }
+
+[workspace]
+# This is a standalone project, not part of the parent workspace

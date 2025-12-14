@@ -1,0 +1,9 @@
+# Seeds for failure cases proptest has generated in the past. It is
+# automatically read and these particular cases re-run before any
+# novel cases are generated.
+#
+# It is recommended to check this file in to source control so that
+# everyone who runs the test benefits from these saved cases.
+cc c35ef76c332d3be28ce29e1576a0feb6f03eb7191e5025260969821bddb8bcb6 # shrinks to service_name = "AService", method_name1 = "GetUser", method_name2 = "GetUser", path_template = "/users"
+cc e4ae4182e03b67c11d22712daf6a8b19a7459a963a5f0f44dee126d1eab4aee3 # shrinks to proto_file = ProtoFile { syntax: Proto3, package: None, imports: [], options: [], services: [Service { name: "AService", methods: [RpcMethod { name: "GetUser", input_type: TypeReference { name: "GetUserRequest", package: None, is_stream: false }, output_type: TypeReference { name: "User", package: None, is_stream: false }, options: [], comments: [], http_annotation: Some(HttpAnnotation { method: Get, path: "/users", body: None, additional_bindings: [] }) }], options: [], comments: [] }], messages: [], enums: [] }
+cc c1420168067b8a8b8191c8ae6e4ca5531f328505a68e9cadf458bc928bdd0dad # shrinks to mut proto_file = ProtoFile { syntax: Proto3, package: None, imports: [], options: [], services: [Service { name: "AService", methods: [RpcMethod { name: "GetUser", input_type: TypeReference { name: "GetUserRequest", package: None, is_stream: false }, output_type: TypeReference { name: "User", package: None, is_stream: false }, options: [], comments: [], http_annotation: Some(HttpAnnotation { method: Get, path: "/users", body: None, additional_bindings: [] }) }], options: [], comments: [] }], messages: [], enums: [] }

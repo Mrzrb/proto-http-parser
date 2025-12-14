@@ -1,0 +1,7 @@
+# Seeds for failure cases proptest has generated in the past. It is
+# automatically read and these particular cases re-run before any
+# novel cases are generated.
+#
+# It is recommended to check this file in to source control so that
+# everyone who runs the test benefits from these saved cases.
+cc 1c99d9c776d023b2fe23326c7f51b255ac7f4125c0a8a0969f00fe14ce30deae # shrinks to service = Service { name: "a", methods: [RpcMethod { name: "A", input_type: TypeReference { name: "a", package: None, is_stream: false }, output_type: TypeReference { name: "a", package: None, is_stream: false }, options: [], comments: [], http_annotation: None }], options: [], comments: [] }, routes = [], custom_data = {}

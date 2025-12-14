@@ -1,0 +1,79 @@
+# Proto HTTP Parser v2 Configuration File
+# Copy this file to proto-http-parser.toml in your project root and customize as needed
+
+[parser]
+# Whether to preserve comments from proto files in generated code
+preserve_comments = true
+
+# Enable strict syntax validation
+strict_validation = true
+
+# Maximum depth for recursive proto imports (prevents infinite loops)
+max_import_depth = 10
+
+# Paths to search for proto imports (relative to project root)
+include_paths = ["proto", "third_party/proto"]
+
+[extractor]
+# Automatically infer common query parameters (page, limit, sort, etc.)
+infer_query_params = true
+
+# List of common query parameter names to automatically detect
+common_query_params = ["page", "limit", "offset", "sort", "order", "filter", "search"]
+
+# Validate HTTP method compatibility with proto service definitions
+validate_http_methods = true
+
+# Allow custom HTTP methods beyond standard ones (GET, POST, PUT, DELETE, PATCH)
+allow_custom_methods = false
+
+[generator]
+# Generate service trait interfaces for dependency injection
+generate_service_traits = true
+
+# Use dependency injection pattern in generated controllers
+use_dependency_injection = true
+
+# Target framework (currently only "PoemOpenApi" is supported)
+target_framework = "PoemOpenApi"
+
+# Additional imports to include in all generated files
+additional_imports = [
+    "use serde::{Deserialize, Serialize};",
+    "use chrono::{DateTime, Utc};"
+]
+
+[generator.formatting]
+# Indentation style: "Spaces" or "Tabs"
+indent_style = "Spaces"
+
+# Number of spaces/tabs for indentation
+indent_size = 4
+
+# Maximum line length for generated code
+max_line_length = 100
+
+# Format generated code with rustfmt (requires rustfmt to be installed)
+use_rustfmt = true
+
+[generator.type_mappings]
+# Custom type mappings from proto types to Rust types
+"google.protobuf.Timestamp" = "chrono::DateTime<chrono::Utc>"
+"google.protobuf.Duration" = "std::time::Duration"
+"google.protobuf.Empty" = "()"
+
+[template]
+# Use built-in templates (recommended)
+use_builtin_templates = true
+
+# Optional: Custom template directory (uncomment to use custom templates)
+# template_dir = "templates"
+
+[template.template_overrides]
+# Override specific built-in templates with custom ones
+# "controller" = "custom_controller.hbs"
+# "service_trait" = "custom_service.hbs"
+
+[template.helpers]
+# Custom template helpers configuration
+# Most users won't need to modify this section

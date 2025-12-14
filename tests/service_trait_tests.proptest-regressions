@@ -1,0 +1,9 @@
+# Seeds for failure cases proptest has generated in the past. It is
+# automatically read and these particular cases re-run before any
+# novel cases are generated.
+#
+# It is recommended to check this file in to source control so that
+# everyone who runs the test benefits from these saved cases.
+cc 1785cff959a660c8e0e5553f42252baad629f3bd6b740db00e0713d157310388 # shrinks to service = Service { name: "a", methods: [RpcMethod { name: "GetUser", input_type: TypeReference { name: "GetUserRequest", package: None, is_stream: false }, output_type: TypeReference { name: "User", package: None, is_stream: false }, options: [], comments: [], http_annotation: None }, RpcMethod { name: "CreateUser", input_type: TypeReference { name: "CreateUserRequest", package: None, is_stream: false }, output_type: TypeReference { name: "User", package: None, is_stream: false }, options: [], comments: [], http_annotation: None }], options: [], comments: [] }
+cc 929d8362bd6a61d8a8dc04fc72877caa057239d0a1785714569708d42f646e86 # shrinks to service_name = "aA"
+cc 6955fb1b1e1f62b8660be30e758e4e78d73306bdca78677bcbafe4138356137c # shrinks to service = Service { name: "AA", methods: [RpcMethod { name: "a", input_type: TypeReference { name: "a", package: None, is_stream: false }, output_type: TypeReference { name: "A", package: None, is_stream: false }, options: [], comments: [], http_annotation: None }], options: [], comments: [] }, routes = []

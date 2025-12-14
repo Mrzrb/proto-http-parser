@@ -1,0 +1,239 @@
+syntax = "proto3";
+
+package bookstore.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+
+// Book management service
+service BookService {
+    // Get a book by ID
+    rpc GetBook(GetBookRequest) returns (Book) {
+        option (google.api.http) = {
+            get: "/v1/books/{book_id}"
+        };
+    }
+    
+    // Create a new book
+    rpc CreateBook(CreateBookRequest) returns (Book) {
+        option (google.api.http) = {
+            post: "/v1/books"
+            body: "*"
+        };
+    }
+    
+    // Update an existing book
+    rpc UpdateBook(UpdateBookRequest) returns (Book) {
+        option (google.api.http) = {
+            put: "/v1/books/{book.id}"
+            body: "book"
+        };
+    }
+    
+    // Delete a book
+    rpc DeleteBook(DeleteBookRequest) returns (DeleteBookResponse) {
+        option (google.api.http) = {
+            delete: "/v1/books/{book_id}"
+        };
+    }
+    
+    // List books with pagination and filtering
+    rpc ListBooks(ListBooksRequest) returns (ListBooksResponse) {
+        option (google.api.http) = {
+            get: "/v1/books"
+        };
+    }
+    
+    // Search books by title or author
+    rpc SearchBooks(SearchBooksRequest) returns (SearchBooksResponse) {
+        option (google.api.http) = {
+            get: "/v1/books/search"
+        };
+    }
+}
+
+// Author management service
+service AuthorService {
+    // Get an author by ID
+    rpc GetAuthor(GetAuthorRequest) returns (Author) {
+        option (google.api.http) = {
+            get: "/v1/authors/{author_id}"
+        };
+    }
+    
+    // Create a new author
+    rpc CreateAuthor(CreateAuthorRequest) returns (Author) {
+        option (google.api.http) = {
+            post: "/v1/authors"
+            body: "*"
+        };
+    }
+    
+    // Update an existing author
+    rpc UpdateAuthor(UpdateAuthorRequest) returns (Author) {
+        option (google.api.http) = {
+            put: "/v1/authors/{author.id}"
+            body: "author"
+        };
+    }
+    
+    // List authors
+    rpc ListAuthors(ListAuthorsRequest) returns (ListAuthorsResponse) {
+        option (google.api.http) = {
+            get: "/v1/authors"
+        };
+    }
+    
+    // Get books by author
+    rpc GetBooksByAuthor(GetBooksByAuthorRequest) returns (ListBooksResponse) {
+        option (google.api.http) = {
+            get: "/v1/authors/{author_id}/books"
+        };
+    }
+}
+
+// Book messages
+message GetBookRequest {
+    string book_id = 1;
+}
+
+message CreateBookRequest {
+    string title = 1;
+    string author_id = 2;
+    string isbn = 3;
+    string description = 4;
+    double price = 5;
+    int32 pages = 6;
+    string publisher = 7;
+    BookGenre genre = 8;
+}
+
+message UpdateBookRequest {
+    Book book = 1;
+}
+
+message DeleteBookRequest {
+    string book_id = 1;
+}
+
+message DeleteBookResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+message ListBooksRequest {
+    int32 page_size = 1;
+    string page_token = 2;
+    string author_id = 3;
+    BookGenre genre = 4;
+    string publisher = 5;
+    double min_price = 6;
+    double max_price = 7;
+}
+
+message ListBooksResponse {
+    repeated Book books = 1;
+    string next_page_token = 2;
+    int32 total_count = 3;
+}
+
+message SearchBooksRequest {
+    string query = 1;
+    int32 page_size = 2;
+    string page_token = 3;
+    SearchType search_type = 4;
+}
+
+message SearchBooksResponse {
+    repeated Book books = 1;
+    string next_page_token = 2;
+    int32 total_count = 3;
+    repeated string suggestions = 4;
+}
+
+message Book {
+    string id = 1;
+    string title = 2;
+    string author_id = 3;
+    string isbn = 4;
+    string description = 5;
+    double price = 6;
+    int32 pages = 7;
+    string publisher = 8;
+    BookGenre genre = 9;
+    BookStatus status = 10;
+    google.protobuf.Timestamp created_at = 11;
+    google.protobuf.Timestamp updated_at = 12;
+}
+
+enum BookGenre {
+    BOOK_GENRE_UNSPECIFIED = 0;
+    BOOK_GENRE_FICTION = 1;
+    BOOK_GENRE_NON_FICTION = 2;
+    BOOK_GENRE_MYSTERY = 3;
+    BOOK_GENRE_ROMANCE = 4;
+    BOOK_GENRE_SCIENCE_FICTION = 5;
+    BOOK_GENRE_FANTASY = 6;
+    BOOK_GENRE_BIOGRAPHY = 7;
+    BOOK_GENRE_HISTORY = 8;
+    BOOK_GENRE_TECHNICAL = 9;
+}
+
+enum BookStatus {
+    BOOK_STATUS_UNSPECIFIED = 0;
+    BOOK_STATUS_AVAILABLE = 1;
+    BOOK_STATUS_OUT_OF_STOCK = 2;
+    BOOK_STATUS_DISCONTINUED = 3;
+}
+
+enum SearchType {
+    SEARCH_TYPE_UNSPECIFIED = 0;
+    SEARCH_TYPE_TITLE = 1;
+    SEARCH_TYPE_AUTHOR = 2;
+    SEARCH_TYPE_ISBN = 3;
+    SEARCH_TYPE_ALL = 4;
+}
+
+// Author messages
+message GetAuthorRequest {
+    string author_id = 1;
+}
+
+message CreateAuthorRequest {
+    string name = 1;
+    string biography = 2;
+    string nationality = 3;
+    google.protobuf.Timestamp birth_date = 4;
+}
+
+message UpdateAuthorRequest {
+    Author author = 1;
+}
+
+message ListAuthorsRequest {
+    int32 page_size = 1;
+    string page_token = 2;
+    string nationality = 3;
+}
+
+message ListAuthorsResponse {
+    repeated Author authors = 1;
+    string next_page_token = 2;
+    int32 total_count = 3;
+}
+
+message GetBooksByAuthorRequest {
+    string author_id = 1;
+    int32 page_size = 2;
+    string page_token = 3;
+}
+
+message Author {
+    string id = 1;
+    string name = 2;
+    string biography = 3;
+    string nationality = 4;
+    google.protobuf.Timestamp birth_date = 5;
+    google.protobuf.Timestamp created_at = 6;
+    google.protobuf.Timestamp updated_at = 7;
+}
