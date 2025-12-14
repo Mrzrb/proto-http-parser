@@ -1,6 +1,6 @@
 //! Example demonstrating the Handlebars template engine usage
 
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 use std::collections::HashMap;
 
 fn main() -> std::result::Result<(), Box<dyn std::error::Error>> {

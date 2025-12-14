@@ -3,9 +3,9 @@
 //! This example shows how to use the plugin system to extend the functionality
 //! of the proto-http-parser-v2 library with custom validators and formatters.
 
-use proto_http_parser_v2::*;
-use proto_http_parser_v2::plugins::examples::*;
-use proto_http_parser_v2::plugins::config::*;
+use proto_http_parser::*;
+use proto_http_parser::plugins::examples::*;
+use proto_http_parser::plugins::config::*;
 use std::collections::HashMap;
 
 fn main() -> std::result::Result<(), Box<dyn std::error::Error>> {
@@ -205,7 +205,7 @@ Self { service }
 
 /// Create a mock proto file for testing
 fn create_mock_proto_file() -> ProtoFile {
-    use proto_http_parser_v2::core::*;
+    use proto_http_parser::core::*;
     
     ProtoFile {
         syntax: ProtocolVersion::Proto3,
@@ -287,7 +287,7 @@ fn create_mock_proto_file() -> ProtoFile {
 
 /// Create mock HTTP routes for testing
 fn create_mock_http_routes() -> Vec<HttpRoute> {
-    use proto_http_parser_v2::core::*;
+    use proto_http_parser::core::*;
     
     vec![
         HttpRoute {

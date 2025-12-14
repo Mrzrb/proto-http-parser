@@ -1,6 +1,6 @@
 //! Custom configuration example demonstrating advanced configuration options
 
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 use std::collections::HashMap;
 
 fn main() -> std::result::Result<(), Box<dyn std::error::Error>> {

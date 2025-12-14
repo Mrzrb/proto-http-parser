@@ -1,6 +1,6 @@
 //! Single service example demonstrating basic usage with one service
 
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 fn main() -> std::result::Result<(), Box<dyn std::error::Error>> {
     println!("Proto HTTP Parser v2 - Single Service Example");

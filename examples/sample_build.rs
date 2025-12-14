@@ -3,7 +3,7 @@
 //! This file shows various ways to integrate proto-http-parser-v2 into your build process.
 //! Copy the relevant sections to your own build.rs file.
 
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 fn main() -> std::result::Result<(), Box<dyn std::error::Error>> {
     // Choose one of the following integration patterns:

@@ -36,7 +36,7 @@ pub trait ProtoParser {
 #### Implementation: NomProtoParser
 
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 let parser = NomProtoParser::new();
 let proto_file = parser.parse_file("service.proto")?;
@@ -63,7 +63,7 @@ pub trait HttpAnnotationExtractor {
 #### Implementation: GoogleApiHttpExtractor
 
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 let extractor = GoogleApiHttpExtractor::new();
 let routes = extractor.extract_routes(&proto_file)?;
@@ -90,7 +90,7 @@ pub trait CodeGenerator {
 #### Implementation: PoemOpenApiGenerator
 
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 let generator = PoemOpenApiGenerator::new();
 let controller = generator.generate_controller(&service, &routes)?;
@@ -120,7 +120,7 @@ pub trait TemplateEngine {
 #### Implementation: HandlebarsTemplateEngine
 
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 let mut engine = HandlebarsTemplateEngine::new();
 engine.register_template("custom", "Hello {{name}}!")?;
@@ -383,7 +383,7 @@ pub enum ValidationError {
 High-level coordinator for processing proto files.
 
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 // With default configuration
 let coordinator = ProtoHttpCoordinator::new();
@@ -413,7 +413,7 @@ pub struct ProcessResult {
 ### Type Conversion Utilities
 
 ```rust
-use proto_http_parser_v2::utils::*;
+use proto_http_parser::utils::*;
 
 // Convert to snake_case
 let snake = to_snake_case("MyServiceName"); // "my_service_name"
@@ -436,7 +436,7 @@ Convenient API for build.rs integration.
 
 ```rust
 // build.rs
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     BuildIntegration::new()
@@ -466,7 +466,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ```rust
 // build.rs
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     BuildIntegration::new()
@@ -491,7 +491,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 ### Basic Usage
 
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 // Parse proto file
 let parser = NomProtoParser::new();
@@ -527,7 +527,7 @@ for service in &proto_file.services {
 ### Using Coordinator
 
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 let coordinator = ProtoHttpCoordinator::new();
 let result = coordinator.process_file("service.proto")?;
@@ -547,7 +547,7 @@ for (service_name, trait_code) in &result.service_traits {
 ### Custom Configuration
 
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 let config = ConfigBuilder::new()
     .preserve_comments(true)

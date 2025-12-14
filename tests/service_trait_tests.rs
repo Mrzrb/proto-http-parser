@@ -3,7 +3,7 @@
 //! **Feature: proto-http-parser-v2, Property 4: Service trait and controller consistency**
 //! **Validates: Requirements 3.6, 3.7, 8.1, 8.2, 8.3, 8.4**
 
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 use proptest::prelude::*;
 
 /// Test that service trait generation maintains consistency with controller requirements

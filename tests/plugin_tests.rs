@@ -1,9 +1,9 @@
 //! Tests for the plugin system
 
-use proto_http_parser_v2::*;
-use proto_http_parser_v2::plugins::*;
-use proto_http_parser_v2::plugins::examples::*;
-use proto_http_parser_v2::plugins::config::*;
+use proto_http_parser::*;
+use proto_http_parser::plugins::*;
+use proto_http_parser::plugins::examples::*;
+use proto_http_parser::plugins::config::*;
 
 #[test]
 fn test_plugin_manager_creation() {

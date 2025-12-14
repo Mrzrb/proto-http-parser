@@ -3,7 +3,7 @@
 //! **Feature: proto-http-parser-v2, Property 3: Code generation syntax correctness**
 //! **Validates: Requirements 3.1, 3.2, 3.3, 3.4, 3.5, 7.2**
 
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 use proptest::prelude::*;
 
 /// Test that generated code has correct syntax and compiles

@@ -124,7 +124,7 @@ Comprehensive error types:
 See `examples/basic_usage.rs` for a complete usage example.
 
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 // Create components
 let parser = NomProtoParser::new();

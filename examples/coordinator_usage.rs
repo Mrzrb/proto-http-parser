@@ -1,6 +1,6 @@
 //! Example demonstrating the main coordinator usage
 
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 fn main() -> std::result::Result<(), Box<dyn std::error::Error>> {
     println!("Proto HTTP Parser v2 - Coordinator Usage Example");

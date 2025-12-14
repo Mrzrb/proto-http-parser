@@ -1,7 +1,7 @@
 //! Integration tests for the validation engine
 
-use proto_http_parser_v2::*;
-use proto_http_parser_v2::core::{
+use proto_http_parser::*;
+use proto_http_parser::core::{
     data::{ProtoFile, Service, RpcMethod, TypeReference, Message, Field, FieldType, FieldLabel, HttpRoute, HttpMethod},
     errors::ValidationError,
     Validator,

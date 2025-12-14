@@ -1,6 +1,6 @@
 //! Multi-service example demonstrating batch generation from multiple services
 
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 use std::collections::HashMap;
 
 fn main() -> std::result::Result<(), Box<dyn std::error::Error>> {

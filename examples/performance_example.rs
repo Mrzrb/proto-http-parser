@@ -1,6 +1,6 @@
 //! Performance demonstration and optimization example
 
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 use std::time::{Duration, Instant};
 
 fn main() -> std::result::Result<(), Box<dyn std::error::Error>> {

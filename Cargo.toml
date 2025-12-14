@@ -2,9 +2,13 @@
 name = "proto-http-parser"
 version = "2.0.0"
 edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
 description = "A Rust library for parsing Protocol Buffer HTTP annotations and generating poem-openapi controllers"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/Mrzrb/proto-http-parser"
+homepage = "https://github.com/Mrzrb/proto-http-parser"
+documentation = "https://docs.rs/proto-http-parser"
+readme = "README.md"
 keywords = ["protobuf", "http", "poem", "openapi", "codegen"]
 categories = ["development-tools", "web-programming"]
 

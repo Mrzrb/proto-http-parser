@@ -1,6 +1,6 @@
 //! Property-based tests for HTTP annotation extraction
 
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 use proptest::prelude::*;
 
 // Shared generators for all tests

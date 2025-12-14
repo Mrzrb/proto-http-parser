@@ -3,7 +3,7 @@
 //! These tests verify that the entire process from proto parsing to code generation
 //! works correctly and that the generated code compiles and integrates with poem-openapi.
 
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 use tempfile::TempDir;
 
 /// Test the complete end-to-end workflow with a simple service

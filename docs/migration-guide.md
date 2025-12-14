@@ -47,7 +47,7 @@ let result = generator.generate_from_file("service.proto")?;
 
 **v2:**
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 // Option 1: Use coordinator (recommended)
 let coordinator = ProtoHttpCoordinator::new();
@@ -139,7 +139,7 @@ use proto_http_parser::*;
 
 **v2:**
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 ```
 
 ### Step 3: Migrate Build Scripts
@@ -157,7 +157,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 **v2 build.rs:**
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     BuildIntegration::new()
@@ -433,7 +433,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 **v2:**
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     BuildIntegration::new()

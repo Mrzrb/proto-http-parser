@@ -86,7 +86,7 @@ snake_case = { helper_type = "SnakeCase" }
 The easiest way to load configuration is using the automatic loader:
 
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 // Automatically loads from default locations and environment
 let config = ProtoHttpParserConfig::load()?;
@@ -179,7 +179,7 @@ The configuration system integrates seamlessly with build.rs scripts:
 
 ```rust
 // build.rs
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     BuildIntegration::new()
@@ -195,7 +195,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ```rust
 // build.rs
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     BuildIntegration::new()
@@ -213,7 +213,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ```rust
 // build.rs
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     BuildIntegration::new()
@@ -230,7 +230,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ```rust
 // build.rs
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     BuildIntegration::new()
@@ -255,7 +255,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ```rust
 // build.rs
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Automatically loads configuration from files and environment

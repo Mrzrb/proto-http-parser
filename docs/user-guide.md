@@ -67,7 +67,7 @@ message HelloResponse {
 
 ```rust
 // build.rs
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     BuildIntegration::new()
@@ -125,7 +125,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 ### Parsing Proto Files
 
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 // Create a parser
 let parser = NomProtoParser::new();
@@ -148,7 +148,7 @@ let proto_file = parser.parse_content(proto_content)?;
 ### Extracting HTTP Routes
 
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 // Create an extractor
 let extractor = GoogleApiHttpExtractor::new();
@@ -170,7 +170,7 @@ for route in &routes {
 ### Generating Code
 
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 // Create a generator
 let generator = PoemOpenApiGenerator::new();
@@ -206,7 +206,7 @@ for service in &proto_file.services {
 For simpler usage, use the `ProtoHttpCoordinator`:
 
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 // Create coordinator with default configuration
 let coordinator = ProtoHttpCoordinator::new();
@@ -237,7 +237,7 @@ for (service_name, trait_code) in result.service_traits {
 ### Using ConfigBuilder
 
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 let config = ConfigBuilder::new()
     // Parser settings
@@ -312,7 +312,7 @@ use_builtin_templates = true
 Load the configuration:
 
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 // Load from specific file
 let config = ProtoHttpParserConfig::from_file("my-config.toml")?;
@@ -337,7 +337,7 @@ export PROTO_HTTP_PARSER_USE_RUSTFMT=true
 ```
 
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 let config = ProtoHttpParserConfig::from_env()?;
 let coordinator = ProtoHttpCoordinator::with_config(config);
@@ -349,7 +349,7 @@ let coordinator = ProtoHttpCoordinator::with_config(config);
 
 ```rust
 // build.rs
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     BuildIntegration::new()
@@ -365,7 +365,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ```rust
 // build.rs
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     BuildIntegration::new()
@@ -398,7 +398,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ```rust
 // build.rs
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     BuildIntegration::new()
@@ -526,7 +526,7 @@ let config = ConfigBuilder::new()
 Extend functionality with plugins:
 
 ```rust
-use proto_http_parser_v2::plugins::*;
+use proto_http_parser::plugins::*;
 
 let mut coordinator = ProtoHttpCoordinator::new();
 
@@ -546,7 +546,7 @@ coordinator.plugin_manager_mut()
 Process multiple proto files efficiently:
 
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 use std::path::Path;
 
 let coordinator = ProtoHttpCoordinator::new();
@@ -599,7 +599,7 @@ my-project/
 ### Error Handling
 
 ```rust
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 match coordinator.process_file("service.proto") {
     Ok(result) => {

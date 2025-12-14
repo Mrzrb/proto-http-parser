@@ -1,6 +1,6 @@
 //! Build script for generating API controllers from proto files
 
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 fn main() -> std::result::Result<(), Box<dyn std::error::Error>> {
     println!("cargo:rerun-if-changed=proto/");

@@ -5,7 +5,7 @@
 //! 
 //! Requirements: 3.1, 3.2, 3.3, 3.4, 3.5
 
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 #[cfg(test)]
 mod controller_unit_tests {

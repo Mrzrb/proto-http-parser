@@ -1,7 +1,7 @@
 //! Performance benchmarks for proto-http-parser-v2
 
 use criterion::{black_box, criterion_group, criterion_main, Criterion, BenchmarkId};
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 use std::time::Duration;
 
 // Sample proto content for benchmarking

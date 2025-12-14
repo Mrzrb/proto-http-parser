@@ -17,9 +17,9 @@ The plugin system provides several extension points:
 ### 1. Register a Plugin
 
 ```rust
-use proto_http_parser_v2::*;
-use proto_http_parser_v2::plugins::*;
-use proto_http_parser_v2::plugins::examples::*;
+use proto_http_parser::*;
+use proto_http_parser::plugins::*;
+use proto_http_parser::plugins::examples::*;
 
 let mut coordinator = ProtoHttpCoordinator::new();
 
@@ -126,7 +126,7 @@ let config = PluginConfigBuilder::new()
 ### 1. Implement the Plugin Trait
 
 ```rust
-use proto_http_parser_v2::plugins::*;
+use proto_http_parser::plugins::*;
 
 struct MyCustomValidator {
     name: String,

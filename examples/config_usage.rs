@@ -1,6 +1,6 @@
 //! Configuration system usage examples
 
-use proto_http_parser_v2::*;
+use proto_http_parser::*;
 
 fn main() -> std::result::Result<(), Box<dyn std::error::Error>> {
     println!("Proto HTTP Parser v2 - Configuration Usage Examples");
