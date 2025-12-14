@@ -158,6 +158,8 @@ pub struct HttpRoute {
     pub query_parameters: Vec<QueryParameter>,
     /// Request body configuration
     pub request_body: std::option::Option<RequestBody>,
+    /// Input type (request message type)
+    pub input_type: TypeReference,
     /// Response type
     pub response_type: TypeReference,
 }
@@ -781,6 +783,7 @@ impl HttpRoute {
             path_parameters: Vec::new(),
             query_parameters: Vec::new(),
             request_body: std::option::Option::None,
+            input_type: TypeReference::new("Empty".to_string()),
             response_type: TypeReference::new("Empty".to_string()),
         }
     }

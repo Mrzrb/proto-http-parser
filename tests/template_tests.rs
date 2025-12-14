@@ -228,6 +228,7 @@ mod template_property_tests {
                 path_parameters: path_params,
                 query_parameters: query_params,
                 request_body: None,
+                input_type: TypeReference::new("Empty".to_string()),
                 response_type,
             }
         })

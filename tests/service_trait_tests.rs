@@ -245,6 +245,7 @@ mod service_trait_property_tests {
                 path_parameters: path_params,
                 query_parameters: query_params,
                 request_body: None,
+                input_type: TypeReference::new("Empty".to_string()),
                 response_type,
             }
         })
@@ -314,6 +315,7 @@ mod service_trait_property_tests {
                     QueryParameter::new("offset".to_string(), ParameterType::Integer, false),
                 ],
                 request_body: None,
+                input_type: method.input_type.clone(),
                 response_type: method.output_type.clone(),
             };
             routes.push(route);

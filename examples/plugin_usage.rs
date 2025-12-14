@@ -304,6 +304,11 @@ fn create_mock_http_routes() -> Vec<HttpRoute> {
             ],
             query_parameters: vec![],
             request_body: None,
+            input_type: TypeReference {
+                name: "GetUserRequest".to_string(),
+                package: None,
+                is_stream: false,
+            },
             response_type: TypeReference {
                 name: "User".to_string(),
                 package: None,
@@ -318,6 +323,11 @@ fn create_mock_http_routes() -> Vec<HttpRoute> {
             path_parameters: vec![],
             query_parameters: vec![],
             request_body: None,
+            input_type: TypeReference {
+                name: "Empty".to_string(),
+                package: None,
+                is_stream: false,
+            },
             response_type: TypeReference {
                 name: "User".to_string(),
                 package: None,

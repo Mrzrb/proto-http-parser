@@ -611,8 +611,10 @@ const CONTROLLER_TEMPLATE: &str = r#"
 use poem_openapi::{OpenApi, payload::Json, param::Path, param::Query};
 use std::sync::Arc;
 // Import types from proto module using relative path from generated directory
-use super::super::proto::{Book, Author, DeleteBookResponse, ListBooksResponse, SearchBooksResponse, ListAuthorsResponse};
-use super::{{pascal_case service.name}}Service;
+{{#if message_types}}
+use super::{{message_types}};
+{{/if}}
+use super::{{snake_case service.name}}_service::{{pascal_case service.name}}Service;
 
 /// {{service.name}} controller generated from Protocol Buffer service
 #[derive(Clone)]
@@ -644,7 +646,7 @@ impl<T: {{pascal_case service.name}}Service + Send + Sync + 'static> {{pascal_ca
         {{/each}}
         {{#if request_body}}
         {{#if request_body.is_entire_message}}
-        body: Json<{{map_type response_type.name}}>,
+        body: Json<{{map_type input_type.name}}>,
         {{else}}
         body: Json<String>,
         {{/if}}
@@ -672,7 +674,9 @@ impl<T: {{pascal_case service.name}}Service + Send + Sync + 'static> {{pascal_ca
 const SERVICE_TRAIT_TEMPLATE: &str = r#"
 use async_trait::async_trait;
 // Import types from proto module using relative path from generated directory
-use super::super::proto::{Book, Author, DeleteBookResponse, ListBooksResponse, SearchBooksResponse, ListAuthorsResponse};
+{{#if message_types}}
+use super::{{message_types}};
+{{/if}}
 
 /// Service trait for {{service.name}}
 /// 
@@ -692,7 +696,7 @@ pub trait {{pascal_case service.name}}Service {
         {{/each}}
         {{#if request_body}}
         {{#if request_body.is_entire_message}}
-        request: {{map_type response_type.name}},
+        request: {{map_type input_type.name}},
         {{else}}
         {{snake_case request_body.field}}: String,
         {{/if}}

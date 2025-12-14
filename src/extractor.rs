@@ -319,6 +319,7 @@ impl HttpAnnotationExtractor for GoogleApiHttpExtractor {
                         path_parameters,
                         query_parameters,
                         request_body,
+                        input_type: method.input_type.clone(),
                         response_type: method.output_type.clone(),
                     };
                     
@@ -348,6 +349,7 @@ impl HttpAnnotationExtractor for GoogleApiHttpExtractor {
                             path_parameters,
                             query_parameters,
                             request_body,
+                            input_type: method.input_type.clone(),
                             response_type: method.output_type.clone(),
                         };
                         
